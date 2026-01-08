@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: 'telegrab-fe'
+    runtime: node
+    env: node
+    plan: free
+    buildCommand: '{{INSTALL_COMMAND}}'
+    startCommand: 'pnpm run start'
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: RUST_LOG
+        value: info
